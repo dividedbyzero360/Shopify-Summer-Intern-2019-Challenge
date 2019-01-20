@@ -1,0 +1,56 @@
+#Query-> getProducts
+
+query getProduct($productID: Int, $onlyAvailableProducts: Boolean) {
+  getProducts(productID: $productID, onlyAvailableProducts: $onlyAvailableProducts) {
+    ...ProductFragment
+  }
+}
+
+fragment ProductFragment on Product {
+  productID
+  title
+  price
+  in_stock
+}
+
+#The below Query Value is optional.
+
+{
+  "productID":3 ,
+  "onlyAvailableProducts": true
+}
+
+*****************************************************************************************************
+#Query-> viewCart
+
+query{
+viewCart{
+  Products{
+    productID
+    title
+    qty
+    price
+  }
+  totalQty
+  totalPrice
+}
+}    
+************************************************************************************************************
+#Mutation-> addToCart ("X" could be any number. The product ids in this project are 1 to 4 )
+
+mutation{
+  addToCart(productID:X){
+    isSuccess,
+    message
+  }
+}
+
+**************************************************************************************************************
+#Mutation-> completeCart
+
+mutation{
+  completeCart{
+    isSuccess,
+    message
+  }
+}
