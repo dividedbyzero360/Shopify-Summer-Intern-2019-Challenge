@@ -18,7 +18,7 @@ var schema = buildSchema(`
         productID: Int  
         title: String
         price: Float
-        #inventory_count: Int     
+        #inventory_count: Int     (Uncomment this line if  "getProducts2" is used.)
         in_stock: Boolean
 
     },
